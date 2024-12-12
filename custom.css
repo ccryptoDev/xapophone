@@ -1,1 +1,16 @@
 
+section[data-section-id="67588da77c1cc114d9cbff7f"] {
+  // padding-top: 12%;
+  // height: 100vh;
+  
+  .bg-movie video {
+    width: 100%;
+    // margin: -9% 0;
+    background: rgba(0, 0, 0, .2);
+  }
+  svg.wave {
+    position: absolute;
+    bottom: -1px;
+    z-index: 100;
+  }
+}
