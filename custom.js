@@ -1,4 +1,14 @@
 
+<div id="video-modal" class="modal">
+  <div class="modal-content">
+    <div class="text-center">
+      <iframe id="video-frame" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="text-center">
+      <button id="close-modal" class="btn modal-close">Close</button>
+    </div>
+  </div>
+</div>
 
 document.addEventListener("DOMContentLoaded", function () {
   const thumbnails = document.querySelectorAll(".sqs-block-image img");
@@ -72,11 +82,33 @@ document.addEventListener("DOMContentLoaded", function () {
           if (imageLinks.length > 0) {
             imageLinks.forEach(link => {
               if (!link.dataset.eventAdded) {
+
                 link.addEventListener('click', function (event) {
+                  // Prevent the default click event of image block
                   event.preventDefault();
+
                   console.log("Click event prevented for:", link);
 
+                  const videoUrl = link.getAttribute('href');
+
+                  // Open the modal
+                  const modal = document.getElementById('video-modal');
+                  const iframe = document.getElementById('video-frame');
+                  
+                  iframe.src = videoUrl + "?autoplay=1";
+
+                  // Show the modal
+                  modal.style.display = "block";
+
+                  // Add event to close the modal
+                  const closeModal = document.getElementById('close-modal');
+                  closeModal.addEventListener('click', function () {
+                    modal.style.display = "none";
+                    iframe.src = ""; 
+                  });
+
                 });
+
                 link.dataset.eventAdded = true; 
               }
             });
