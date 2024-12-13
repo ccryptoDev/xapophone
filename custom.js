@@ -38,38 +38,53 @@ if (document.querySelector('[data-section-id="6724372ebe9e195b54478118"]')) {
 }
 
 
-if (document.querySelector('[data-section-id="675ba0a1c4348e4af0853916"]')) {
-  console.log('video gallery section!');
-  const videoGallery = document.querySelector('[data-section-id="675ba0a1c4348e4af0853916"]');
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.querySelector('[data-section-id="675ba0a1c4348e4af0853916"]')) {
+    console.log('video gallery section!');
+    const videoGallery = document.querySelector('[data-section-id="675ba0a1c4348e4af0853916"]');
   
-  if (videoGallery) {
-    const contentWrapper = videoGallery.querySelector('.content-wrapper');
+    if (videoGallery) {
+      const contentWrapper = videoGallery.querySelector('.content-wrapper');
 
-    // Ensure the contentWrapper is available before setting up the observer
-    if (contentWrapper) {
-      const observer = new MutationObserver(() => {
-        // Select all image links inside '.sqs-block-image' blocks
-        const imageLinks = contentWrapper.querySelectorAll('.sqs-block-image a');
-        
-        if (imageLinks.length > 0) {
-          imageLinks.forEach(link => {
-            // Check if the event listener is already added to avoid duplication
-            if (!link.dataset.eventAdded) {
-              link.addEventListener('click', function (event) {
-                // Prevent default link navigation
-                event.preventDefault();
-                console.log("Click event prevented for:", link);
+      if (contentWrapper) {
+        const observer = new MutationObserver(() => {
+          const imageLinks = contentWrapper.querySelectorAll('.sqs-block-image a');
 
-                // Add your custom functionality here, e.g., open a modal
-              });
-              link.dataset.eventAdded = true; // Mark the link as handled
-            }
-          });
-        }
-      });
+          if (imageLinks.length > 0) {
+            imageLinks.forEach(link => {
+              if (!link.dataset.eventAdded) {
+                link.addEventListener('click', function (event) {
+                  event.preventDefault();
+                  console.log("Click event in Observer prevented for:", link);
 
-      // Observe the contentWrapper and any nested divs for child node changes
-      observer.observe(contentWrapper, { childList: true, subtree: true });
+                });
+                link.dataset.eventAdded = true; 
+              }
+            });
+          }
+        });
+
+        observer.observe(contentWrapper, { childList: true, subtree: true });
+
+        const interval = setInterval(() => {
+          const imageLinks = contentWrapper.querySelectorAll('.sqs-block-image a');
+
+          if (imageLinks.length > 0) {
+            imageLinks.forEach(link => {
+              if (!link.dataset.eventAdded) {
+                link.addEventListener('click', function (event) {
+                  event.preventDefault();
+                  console.log("Click event prevented for:", link);
+
+                });
+                link.dataset.eventAdded = true; 
+              }
+            });
+            
+            clearInterval(interval);
+          }
+        }, 500); 
+      }
     }
   }
-}
+});
