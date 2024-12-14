@@ -57,6 +57,12 @@ document.addEventListener("DOMContentLoaded", function () {
       if (bannerVideo) {
         bannerVideo.remove(); 
       }
+
+      // wave
+      const waveBlock = document.querySelector(".fe-block-yui_3_17_2_1_1734020931431_41783"); 
+      if (waveBlock) {
+        waveBlock.remove(); 
+      }
     }
   }
   
