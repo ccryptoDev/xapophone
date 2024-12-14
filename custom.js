@@ -69,6 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
       if (desc_1) {
         desc_1.remove(); 
       }
+
+      // banner desc#2
+      const desc_2 = document.querySelector(".fe-block-yui_3_17_2_1_1734020931431_41783"); 
+      if (desc_2) {
+        desc_1.remove(); 
+      }
     }
   }
   
