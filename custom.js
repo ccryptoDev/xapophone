@@ -49,6 +49,18 @@ if (document.querySelector('[data-section-id="6724372ebe9e195b54478118"]')) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
+  /* Removing some blocks in the banner on mobile home */
+  if (document.querySelector('[data-section-id="67588da77c1cc114d9cbff7f"]')) {
+    if (window.innerWidth <= 767) {
+      // video
+      const bannerVideo = document.querySelector(".fe-block-yui_3_17_2_1_1734020931431_21876"); 
+      if (bannerVideo) {
+        bannerVideo.remove(); 
+      }
+    }
+  }
+  
+  /* video gallery section on Homepage */
   if (document.querySelector('[data-section-id="675ba0a1c4348e4af0853916"]')) {
     console.log('video gallery section!');
     const videoGallery = document.querySelector('[data-section-id="675ba0a1c4348e4af0853916"]');
