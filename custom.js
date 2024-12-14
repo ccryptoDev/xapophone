@@ -80,6 +80,33 @@ document.addEventListener("DOMContentLoaded", function () {
           const imageLinks = contentWrapper.querySelectorAll('.sqs-block-image a');
 
           if (imageLinks.length > 0) {
+            // first, append play icons by each block
+            const imageBlocks = document.querySelectorAll('.sqs-block-image');
+
+            imageBlocks.forEach(imageBlock => {
+              const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+              svgElement.setAttribute("width", "39px");
+              svgElement.setAttribute("aria-hidden", "true");
+              svgElement.setAttribute("focusable", "false");
+              svgElement.setAttribute("data-prefix", "fas");
+              svgElement.setAttribute("data-icon", "play");
+              svgElement.setAttribute("role", "img");
+              svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+              svgElement.setAttribute("viewBox", "0 0 448 512");
+              svgElement.classList.add("play-icon"); 
+
+              const pathElement = document.createElementNS("http://www.w3.org/2000/svg", "path");
+              pathElement.setAttribute("fill", "currentColor");
+              pathElement.setAttribute(
+                "d",
+                "M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"
+              );
+
+              svgElement.appendChild(pathElement);
+
+              imageBlock.appendChild(svgElement);
+            });
+
             imageLinks.forEach(link => {
               if (!link.dataset.eventAdded) {
 
