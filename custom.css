@@ -307,3 +307,16 @@ section[data-section-id="6757f3eda3535c0e5b602662"] {
     fill: #fff;
   }
 }
+@media screen and (max-width: 767px) {
+  section[data-section-id="6757f3eda3535c0e5b602662"] {
+    .fluid-engine .fe-block:first-child .fluid-image-container {
+      width: 100% !important;
+    }
+    
+    .fe-block.fe-block-07a6eaa6175646029211 {
+      .sqs-svg-icon--list {
+        justify-content: space-between !important;
+      }
+    }
+  }
+} 
