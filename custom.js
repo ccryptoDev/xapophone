@@ -1,53 +1,5 @@
 
-<div id="video-modal" class="modal">
-  <div class="modal-content">
-    <div class="text-center">
-      <iframe id="video-frame" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-    <div class="text-center">
-      <button id="close-modal" class="btn modal-close">Close</button>
-    </div>
-  </div>
-</div>
-
-document.addEventListener("DOMContentLoaded", function () {
-  const thumbnails = document.querySelectorAll(".sqs-block-image img");
-  const modal = document.getElementById("video-modal");
-  const videoFrame = document.getElementById("video-frame");
-  const closeModal = document.getElementById("close-modal");
-
-  thumbnails.forEach((thumbnail) => {
-    thumbnail.addEventListener("click", function () {
-      const videoUrl = thumbnail.getAttribute("data-video-url");
-      if (videoUrl) {
-        videoFrame.src = `${videoUrl}?autoplay=1&rel=0`;
-        modal.style.display = "flex"; 
-      }
-    });
-  });
-
-  closeModal.addEventListener("click", function () {
-    modal.style.display = "none";
-    videoFrame.src = ""; 
-  });
-
-  modal.addEventListener("click", function (event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-      videoFrame.src = ""; 
-    }
-  });
-});
-
-
-if (document.querySelector('[data-section-id="6724372ebe9e195b54478118"]')) {
-  const blogSection = document.querySelector('[data-section-id="6724372ebe9e195b54478118"]');
-  if (blogSection) {
-    blogSection.classList.add("blog-section");
-  }
-}
-
-
+<script>
 document.addEventListener("DOMContentLoaded", function () {
   /* Removing some blocks in the banner on mobile home */
   if (document.querySelector('[data-section-id="67588da77c1cc114d9cbff7f"]')) {
@@ -57,27 +9,27 @@ document.addEventListener("DOMContentLoaded", function () {
       if (bannerVideo) {
         bannerVideo.remove(); 
       }
-
+      
       // wave
       const waveBlock = document.querySelector(".fe-block-yui_3_17_2_1_1734020931431_41783"); 
       if (waveBlock) {
         waveBlock.remove(); 
       }
-
+      
       // banner desc#1
-      const desc_1 = document.querySelector(".fe-block-yui_3_17_2_1_1734020931431_41783"); 
+      const desc_1 = document.querySelector(".fe-block-yui_3_17_2_1_1734120902651_43325"); 
       if (desc_1) {
         desc_1.remove(); 
       }
-
+      
       // banner desc#2
-      const desc_2 = document.querySelector(".fe-block-yui_3_17_2_1_1734020931431_41783"); 
+      const desc_2 = document.querySelector(".fe-block-ff1517879f105910ea13"); 
       if (desc_2) {
-        desc_1.remove(); 
+        desc_2.remove(); 
       }
-
+      
       // banner desc#3
-      const desc_3 = document.querySelector(".fe-block-yui_3_17_2_1_1734020931431_41783"); 
+      const desc_3 = document.querySelector(".fe-block-b3b55d31ff694658773e"); 
       if (desc_3) {
         desc_3.remove(); 
       }
@@ -116,17 +68,16 @@ document.addEventListener("DOMContentLoaded", function () {
           const imageLinks = contentWrapper.querySelectorAll('.sqs-block-image a');
 
           if (imageLinks.length > 0) {
-            // first, append play icons by each block
-            const imageBlocks = document.querySelectorAll('.sqs-block-image');
-
+            // Insert play icons by each block first
+            const imageBlocks = contentWrapper.querySelectorAll('.sqs-block-image');
+            
             imageBlocks.forEach(imageBlock => {
               const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-              svgElement.setAttribute("width", "39px");
               svgElement.setAttribute("aria-hidden", "true");
               svgElement.setAttribute("focusable", "false");
-              svgElement.setAttribute("data-prefix", "fas");
+              // svgElement.setAttribute("data-prefix", "fas");
               svgElement.setAttribute("data-icon", "play");
-              svgElement.setAttribute("role", "img");
+              // svgElement.setAttribute("role", "img");
               svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
               svgElement.setAttribute("viewBox", "0 0 448 512");
               svgElement.classList.add("play-icon"); 
@@ -142,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
               imageBlock.appendChild(svgElement);
             });
-
+            
             imageLinks.forEach(link => {
               if (!link.dataset.eventAdded) {
 
@@ -153,25 +104,18 @@ document.addEventListener("DOMContentLoaded", function () {
                   console.log("Click event prevented for:", link);
 
                   const videoUrl = link.getAttribute('href');
-
-                  // Open the modal
                   const modal = document.getElementById('video-modal');
                   const iframe = document.getElementById('video-frame');
-                  
                   iframe.src = videoUrl + "?autoplay=1";
-
-                  // Show the modal
                   modal.style.display = "block";
 
-                  // Add event to close the modal
                   const closeModal = document.getElementById('close-modal');
                   closeModal.addEventListener('click', function () {
                     modal.style.display = "none";
                     iframe.src = ""; 
                   });
-
                 });
-
+                
                 link.dataset.eventAdded = true; 
               }
             });
@@ -182,4 +126,21 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
+  
+  /* PDF section */
+  if (document.querySelector('[data-section-id="675f17eeca0a393be1b30277"]')) {
+    const pdfButtons = document.querySelectorAll("button[data-pdf-link]");
+
+    pdfButtons.forEach(button => {
+      button.addEventListener("click", function () {
+        const pdfLink = button.getAttribute("data-pdf-link");
+        if (pdfLink) {
+          window.open(pdfLink, "_blank", "noopener,noreferrer");
+        } else {
+          console.error("PDF link is missing!");
+        }
+      });
+    });
+  }
 });
+</script>
