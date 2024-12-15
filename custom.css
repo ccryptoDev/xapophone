@@ -222,9 +222,13 @@ section[data-section-id="675efa378867cf4f448337fe"] {
 /* align last statistics block in the center on mobile view */
 @media screen and (max-width: 767px) {
   section[data-section-id="675efa378867cf4f448337fe"] {
-    ul.li.list-item:last-child {
-      grid-column: 1 / -1;
-      justify-self: center;
-    } 
+    ul.user-items-list-item-container {
+    grid-template-columns: repeat(2, 1fr);
+      
+      li.list-item:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+      } 
+    }
   }
 }
