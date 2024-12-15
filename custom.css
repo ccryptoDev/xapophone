@@ -3,6 +3,14 @@
   text-align: center;  
 }
 
+.header-title-logo img {
+    max-height: 70px;
+}
+@media screen and (max-width: 1199px) {
+  .header-title-logo img {
+    max-height: 50px;
+  }
+}
 /* home banner section */
 section[data-section-id="67588da77c1cc114d9cbff7f"] {
   // padding-top: 12%;
@@ -228,7 +236,9 @@ section[data-section-id="675efa378867cf4f448337fe"] {
     }
     
     ul li.list-item:last-child {
-      grid-column: 1 / 3;
+      // grid-column: 1 / 3;
+      grid-column-start: 1;
+      grid-column-end: 3;
       justify-self: center;
     }
     
@@ -238,7 +248,62 @@ section[data-section-id="675efa378867cf4f448337fe"] {
   }
 }
 
-/* PDF section */
+/* PDFs section */
 section[data-section-id="675f17eeca0a393be1b30277"] {
+  min-height: 40vh !important;
   
+  .content-wrapper {
+  	padding-top: 3.6vmax !important;
+    padding-bottom: 3.6vmax !important;  
+  }
+  
+  h3 {
+    font-family: Circular, Inter, avenir, sans-serif !important;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    font-weight: bold;
+  }
+  .sqs-block-button-container {
+    a {
+      border: none;
+      padding: 7px 15px !important;
+      border-radius: 30px;
+      font-family: Circular, Inter, avenir, sans-serif !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      text-decoration: none;
+      text-align: center;
+      max-width: 300px;
+      background: #2d3748;
+      color: #fff;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  section[data-section-id="675f17eeca0a393be1b30277"] {
+    h3 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+/* footer */
+section[data-section-id="6757f3eda3535c0e5b602662"] {
+  .content-wrapper {
+    background-color: rgb(45, 55, 72);
+    color: #fff;
+    font-family: Circular, Inter, avenir, sans-serif;
+  }
+  
+  pre {
+    white-space: pre-wrap;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-family: Circular, Inter, avenir, sans-serif;
+  }
+  
+  .socialaccountlinks-v2-block .social-icons-style-regular .sqs-use--icon {
+    fill: #fff;
+  }
 }
