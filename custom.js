@@ -142,5 +142,16 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+/* Join Now button */
+  const joinBtn = document.querySelector('.btn-join');
+  if (joinBtn) {
+    joinBtn.addEventListener("click", function() {
+      const joinLink = joinBtn.getAttribute("data-join-link");
+      if (joinLink) {
+        window.open(joinLink);
+      }
+    });
+  }
 });
 </script>
