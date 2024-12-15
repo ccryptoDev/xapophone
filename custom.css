@@ -55,6 +55,26 @@ section[data-section-id="67588da77c1cc114d9cbff7f"] {
   }
 }
 
+/* Join button section on Home */
+section[data-section-id="675dd600294886520718d7ea"] {
+  min-height: 0 !important;
+  
+  .content-wrapper {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+section[data-section-id="675ba0a1c4348e4af0853916"] {
+  min-height: 48vh !important;
+  
+  .content-wrapper {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+
 /* play icon in video gallery section */
 section[data-section-id="675ba0a1c4348e4af0853916"] {
   svg.play-icon {
@@ -131,4 +151,80 @@ section[data-section-id="675ba0a1c4348e4af0853916"] {
   padding: 8px 19px;
   background: #f39320;
   color: #fff;
+}
+
+/* statistics section */
+section[data-section-id="675efa378867cf4f448337fe"] {
+  .user-items-list {
+    padding-top: 3vmax !important;
+    padding-bottom: 4vmax !important;
+    
+    .list-section-title {
+      padding: 0 !important;
+      margin: .75rem 0;
+      width: 100%;
+      max-width: 100%;
+      position: absolute;
+      bottom: 0;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: #fff;
+    }
+  }
+  
+  ul.user-items-list-item-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  li.list-item {
+    padding: 0 !important;
+    background-color: transparent !important;
+    
+    .list-item-media {
+      margin-bottom: 3% !important;
+      
+      .list-item-media-inner {
+        padding: 0;
+        width: 75px;
+        height: 75px;
+        text-align: center;
+        margin: 0 auto;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    
+    .list-item-content {
+      color: #fff; 
+      font-family: Circular, Inter, avenir, sans-serif;
+      
+      .list-item-content__title {
+        font-weight: bold;
+        font-size: 2rem;
+        line-height: 2.5rem;
+        color: #fff;
+        font-family: Circular, Inter, avenir, sans-serif;
+      }
+      
+      .list-item-content__description {
+        margin-top: 1% !important;
+        color: #fff;
+        font-size: 1rem;
+        line-height: 1.2rem;
+      }
+    }
+  }
+}
+
+/* align last statistics block in the center on mobile view */
+@media screen and (max-width: 767px) {
+  section[data-section-id="675efa378867cf4f448337fe"] {
+    ul.li.list-item:last-child {
+      grid-column: 1 / -1;
+      justify-self: center;
+    } 
+  }
 }
