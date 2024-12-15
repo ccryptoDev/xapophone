@@ -1,5 +1,4 @@
 
-
 .text-center {
   text-align: center;  
 }
@@ -237,4 +236,9 @@ section[data-section-id="675efa378867cf4f448337fe"] {
       max-width: 80% !important;
     }
   }
+}
+
+/* PDF section */
+section[data-section-id="675f17eeca0a393be1b30277"] {
+  
 }
