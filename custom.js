@@ -1,18 +1,37 @@
 
+
 <script>
 function playVideo (videoUrl) {
   const modal = document.getElementById('video-modal');
   const iframe = document.getElementById('video-frame');
   iframe.src = videoUrl + "?autoplay=1";
   modal.style.display = "block";
+  
+  document.addEventListener('click', closeModalOnOutsideClick);
+  
+  const closeBtn = document.getElementById('close-modal');
+  closeBtn.addEventListener('click', closeModal);
+}
 
-  const closeModal = document.getElementById('close-modal');
-  closeModal.addEventListener('click', function () {
-    modal.style.display = "none";
-    iframe.src = ""; 
-  });
+function closeModal() {
+  const modal = document.getElementById('video-modal');
+  const iframe = document.getElementById('video-frame');
+  
+  modal.style.display = "none";
+  iframe.src = "";
+  
+  document.removeEventListener('click', closeModalOnOutsideClick);
 }
   
+function closeModalOnOutsideClick(event) {
+  /* const modal = document.getElementById('video-modal');
+  const modalContent = modal.querySelector('.modal-content');
+
+  if (!modalContent.contains(event.target)) {
+    closeModal();
+  } */
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   /* Removing some blocks in the banner on mobile home */
   if (document.querySelector('[data-section-id="67588da77c1cc114d9cbff7f"]')) {
@@ -107,16 +126,13 @@ document.addEventListener("DOMContentLoaded", function () {
               imageBlock.appendChild(svgElement);
             });
             
-            imageLinks.forEach(link => {
+            imageBlocks.forEach(link => {
               if (!link.dataset.eventAdded) {
-
                 link.addEventListener('click', function (event) {
                   // Prevent the default click event of image block
                   event.preventDefault();
 
-                  console.log("Click event prevented for:", link);
-
-                  const videoUrl = link.getAttribute('href');
+                  const videoUrl = link.querySelector('a.sqs-block-image-link').getAttribute('href');
                   playVideo(videoUrl);
                   /* const modal = document.getElementById('video-modal');
                   const iframe = document.getElementById('video-frame');
@@ -167,6 +183,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  
+  /* Close video iframe when clicking anywhere */
+  // document.addEventListener('click', closeModalOnOutsideClick);
   
   /* Join Now button */
   const joinBtn = document.querySelector('.btn-join');
