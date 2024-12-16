@@ -1,5 +1,18 @@
 
 <script>
+function playVideo (videoUrl) {
+  const modal = document.getElementById('video-modal');
+  const iframe = document.getElementById('video-frame');
+  iframe.src = videoUrl + "?autoplay=1";
+  modal.style.display = "block";
+
+  const closeModal = document.getElementById('close-modal');
+  closeModal.addEventListener('click', function () {
+    modal.style.display = "none";
+    iframe.src = ""; 
+  });
+}
+  
 document.addEventListener("DOMContentLoaded", function () {
   /* Removing some blocks in the banner on mobile home */
   if (document.querySelector('[data-section-id="67588da77c1cc114d9cbff7f"]')) {
@@ -104,7 +117,8 @@ document.addEventListener("DOMContentLoaded", function () {
                   console.log("Click event prevented for:", link);
 
                   const videoUrl = link.getAttribute('href');
-                  const modal = document.getElementById('video-modal');
+                  playVideo(videoUrl);
+                  /* const modal = document.getElementById('video-modal');
                   const iframe = document.getElementById('video-frame');
                   iframe.src = videoUrl + "?autoplay=1";
                   modal.style.display = "block";
@@ -113,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   closeModal.addEventListener('click', function () {
                     modal.style.display = "none";
                     iframe.src = ""; 
-                  });
+                  }); */
                 });
                 
                 link.dataset.eventAdded = true; 
@@ -142,8 +156,19 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-
-/* Join Now button */
+  
+  /* video play button */
+  const watchVideo = document.querySelector('.btn-play-video');
+  if (watchVideo) {
+    watchVideo.addEventListener("click", function() {
+      const videoUrl = watchVideo.getAttribute('data-video-link');
+      if (videoUrl) {
+        playVideo(videoUrl);
+      }
+    });
+  }
+  
+  /* Join Now button */
   const joinBtn = document.querySelector('.btn-join');
   if (joinBtn) {
     joinBtn.addEventListener("click", function() {
