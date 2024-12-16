@@ -93,6 +93,7 @@ section[data-section-id="675ba0a1c4348e4af0853916"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    cursor: pointer;
   }
 }
 
