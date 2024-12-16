@@ -144,6 +144,15 @@ section[data-section-id="675ba0a1c4348e4af0853916"] {
   width: 100%;
   height: 45vh;
 }
+@media screen and (max-width: 767px) {
+  .modal-content {
+    width: 100%;
+    margin-top: 80px;
+  }  
+  .modal iframe {
+    height: 250px;
+  }
+}
 
 .btn.btn-primary {
   border: none;
