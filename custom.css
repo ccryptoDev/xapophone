@@ -1,5 +1,4 @@
 
-
 .text-center {
   text-align: center;  
 }
@@ -427,7 +426,7 @@ section[data-section-id="6761d3c037b3b907492b4a22"] {
 section[data-section-id="6761e980ae20e22a1bfc5bee"] {
   .sqs-block-accordion {
     .accordion-item__title-wrapper {
-      margin: 7px auto;
+      margin: 15px auto;
       background-color: #2d3748;
       border-radius: 10px;
       padding: 3px 30px;
