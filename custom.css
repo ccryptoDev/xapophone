@@ -3,6 +3,11 @@
   text-align: center;  
 }
 
+/* header background */
+body.tweak-transparent-header .header:not(.shrink):not(.transparent-header-theme--override) {
+    background-color: #6A8AC2 !important;
+}
+
 /* account buttons in the header */
 .header-title-logo img {
     max-height: 70px;
@@ -395,5 +400,24 @@ section[data-section-id="6757f3eda3535c0e5b602662"] {
         justify-content: space-between !important;
       }
     }
+  }
+}
+
+/* Disclosure page */
+section[data-section-id="6761d3c037b3b907492b4a22"] {
+  h1, h2, h3 {
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.75rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  p {
+    margin: 0;
   }
 }
