@@ -459,3 +459,11 @@ section[data-section-id="6761e980ae20e22a1bfc5bee"] {
     }
   }
 }
+
+section[data-section-id="675a7678e9dbf53d1398c7f4"] {
+  svg.wave {
+    position: absolute;
+    bottom: 25%;
+    z-index: 100;
+  }
+}
